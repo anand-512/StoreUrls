@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "Store Urls",
+  "description": "This extension stores all urls you have visited",
+  "version": "1.0",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icon16.png"
+  },
+
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+
+  "permissions": [
+      "storage",
+      "tabs"
+    ]
+}
